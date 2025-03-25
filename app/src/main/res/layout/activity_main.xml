@@ -1,0 +1,162 @@
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:id="@+id/main">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="341dp"
+                android:layout_height="wrap_content"
+                android:padding="10sp"
+                android:text="Aplicación para la demostración de los diferentes ScrollView "
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="339dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="50sp"
+                android:text="Elige la categoria en la que quieres cargar las imagenes, selecciona una o varias imgenes y cargalas para ver el desplazamiento de los contenedores. O carga el ejemplo"
+                android:textAlignment="center"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Imagenes de Amigos"
+                android:textSize="18sp"
+                android:paddingBottom="8dp"/>
+
+            <Button
+                android:id="@+id/btnSeleccionarAmigos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Seleccionar Imagen"/>
+
+
+            <HorizontalScrollView
+                android:layout_width="349dp"
+                android:layout_height="wrap_content"
+                android:contentDescription="Primera fila de galería">
+
+                <LinearLayout
+                    android:id="@+id/contenedorAmigos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <!-- Otra fila horizontal -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Imagenes de Familia"
+                android:textSize="18sp"
+                android:paddingTop="16dp"
+                android:paddingBottom="8dp"/>
+            <Button
+                android:id="@+id/btnSeleccionarFamilia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Seleccionar Imagen"/>
+
+            <HorizontalScrollView
+                android:layout_width="349dp"
+                android:layout_height="wrap_content"
+                android:contentDescription="Segunda fila de galería">
+
+                <LinearLayout
+                    android:id="@+id/contenedorFamilia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Imagenes de Trabajo"
+                android:textSize="18sp"
+                android:paddingTop="16dp"
+                android:paddingBottom="8dp"/>
+
+            <Button
+                android:id="@+id/btnSeleccionarTrabajo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Seleccionar Imagen"/>
+
+            <HorizontalScrollView
+                android:layout_width="347dp"
+                android:layout_height="wrap_content"
+                android:contentDescription="Segunda fila de galería">
+
+                <LinearLayout
+                    android:id="@+id/contenedorTrabajo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Imagenes de Comida"
+                android:textSize="18sp"
+                android:paddingTop="16dp"
+                android:paddingBottom="8dp"/>
+
+            <Button
+                android:id="@+id/btnSeleccionarComida"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Seleccionar Imagen"/>
+
+            <HorizontalScrollView
+                android:layout_width="344dp"
+                android:layout_height="wrap_content"
+                android:contentDescription="Cuarta fila de galería">
+
+                <LinearLayout
+                    android:id="@+id/contenedorComida"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+
+            <Button
+                android:id="@+id/btnEjemplo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:layout_marginLeft="230sp"
+                android:backgroundTint="@color/design_default_color_primary_variant"
+                android:text="Ejemplo" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.core.widget.NestedScrollView>
