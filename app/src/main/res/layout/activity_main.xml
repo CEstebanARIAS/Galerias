@@ -146,7 +146,6 @@
                 </LinearLayout>
             </HorizontalScrollView>
 
-
             <Button
                 android:id="@+id/btnEjemplo"
                 android:layout_width="wrap_content"
@@ -155,6 +154,15 @@
                 android:layout_marginLeft="230sp"
                 android:backgroundTint="@color/design_default_color_primary_variant"
                 android:text="Ejemplo" />
+
+            <Button
+                android:id="@+id/btnEliminar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:layout_marginLeft="230sp"
+                android:backgroundTint="@color/design_default_color_primary_variant"
+                android:text="Eliminar" />
 
         </LinearLayout>
     </ScrollView>

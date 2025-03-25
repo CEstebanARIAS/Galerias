@@ -17,6 +17,10 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
     private static final int PICK_IMAGE = 100;
     private int filaSelect;
@@ -58,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
             cargarEjemplo();
         });
 
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -80,10 +85,10 @@ public class MainActivity extends AppCompatActivity {
 
         if (resultCode == RESULT_OK && requestCode == PICK_IMAGE) {
             LinearLayout contenedor = findViewById(filaSelect);
-
+            eliminarEjemplos(contenedor);
             if(data.getClipData() != null){
                 //SI EL USUARIO ELIGE VARIAS IMAGENES
-                eliminarEjemplos(contenedor);
+
                 int count = data.getClipData().getItemCount();
                 for(int i = 0; i<count; i++){
                     Uri imagenUri = data.getClipData().getItemAt(i).getUri();
@@ -91,7 +96,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }else if (data.getData()!=null){
                 //SI EL USUARIO ELIGE UNA SOLA IMAGEN
-                eliminarEjemplos(contenedor);
                 Uri imagenUri = data.getData();
                 agregarImagen(contenedor, imagenUri);
             }
@@ -107,34 +111,39 @@ public class MainActivity extends AppCompatActivity {
             for(int i=0; i<3; i++){
                 ImageView cuadrado = new ImageView(this);
                 cuadrado.setTag("ejemplo");
+                System.out.println("Elementos creados");
                 cuadrado.setLayoutParams(new LinearLayout.LayoutParams(500, 500));
                 cuadrado.setPadding(8,8,8,8);
                 cuadrado.setBackgroundColor(getResources().getColor(android.R.color.holo_blue_light));
-                cuadrado.setPadding(10, 10, 10, 10); // Espacio interior
-                cuadrado.setImageDrawable(new ColorDrawable(Color.BLUE)); // Fondo azul
-                // Agregar la imagen al layout vertical o horizontal que tengas
+                cuadrado.setPadding(10, 10, 10, 10);
+                cuadrado.setImageDrawable(new ColorDrawable(Color.BLUE));
                 contenedor.addView(cuadrado);
             }
         }
     }
 
-    protected void eliminarEjemplos(LinearLayout contenedor){
-        for (int i = contenedor.getChildCount()-1; i>=0; i++){
-            View child = contenedor.getChildAt(i);
-            Object tag = child.getTag();
-            if(tag!= null && tag.equals("ejemplo")){
-                contenedor.removeViewAt(i);
+    private void eliminarEjemplos(LinearLayout contenedor) {
+        List<View> vistasParaEliminar = new ArrayList<>();
+        for (int i = 0; i < contenedor.getChildCount(); i++) {
+            View view = contenedor.getChildAt(i);
+            if (view != null) {
+                Object tag = view.getTag();
+                if (tag != null && tag.equals("ejemplo")) {
+                    vistasParaEliminar.add(view);
+                }
             }
+        }
+        for (View v : vistasParaEliminar) {
+            contenedor.removeView(v);
         }
     }
 
+
     protected void agregarImagen(LinearLayout contenedor, Uri imagenUri){
-        // Crear el ImageView dinámico
         ImageView imageView = new ImageView(this);
         imageView.setLayoutParams(new LinearLayout.LayoutParams(500, 500));
         imageView.setPadding(8,8,8,8);
         imageView.setImageURI(imagenUri);
-        // Agregar la imagen al layout vertical o horizontal que tengas
         contenedor.addView(imageView);
     }
 
